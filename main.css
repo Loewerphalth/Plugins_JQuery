@@ -34,10 +34,11 @@ h2 {
     padding: 20px;
     margin-top: 30px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: glow 1.5s infinite alternate;
-
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+    /*animation: glow 1.5s infinite alternate;*/
+    border-radius: 10px;
 }
+
 @keyframes glow {
     100% { box-shadow: 0 0 20px #007bff; }
 
@@ -64,6 +65,7 @@ h2 {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     font-weight: bold;
