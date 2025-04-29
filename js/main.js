@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-// Corrigir as máscaras
-$('#telefone').mask('(00) 00000-0000', {
-    placeholder: '(DDD) 12345-6789'
-});
+$(document).ready(function () {
+    $('#carousel-imagens').slick({
+        autoplay: true,
+        arrows: false
+    })
+})
 
-$('#cpf').mask('000.000.000-00', {
-    placeholder: '123.456.789-00'
-});
-
-$('#cep').mask('00000-000', {
-    placeholder: '01234-567'
-});
-
-// Corrigir a validação
-=======
 $('#telefone').mask('(00) 00000-0000', {
     placeholder: '(DDD) 12345-6789'
 })
@@ -26,7 +17,10 @@ $('#cep').mask('00000-000', {
     placeholder: '012345-678'
 })
 
->>>>>>> 59cad0c0857126c0b6cee3a78e42dc2fd2a69e84
+
+
+
+
 $('form').validate({
     rules: {
         nome: {
@@ -34,34 +28,40 @@ $('form').validate({
         },
         email: {
             required: true,
-            email: true
+           
         },
         telefone: {
             required: true
         },
-        endereco: {
-            required: true
-        },
-        cep: {
-            required: true
-        },
         cpf: {
             required: true
-<<<<<<< HEAD
-        }
-=======
         },
->>>>>>> 59cad0c0857126c0b6cee3a78e42dc2fd2a69e84
+    },
+    
+
+    messages : {
+        nome: 'Por favor, insira seu nome',
+          email: 'Por favor, insira seu email',
+          telefone: 'Por favor, insira seu telefone',
+            cpf :'Por favor, insira seu CPF',
     },
     submitHandler: function (form) {
-        alert("Sua requisição foi enviada para análise, parabéns pela aquisição!");
-        form.reset();
+        event.preventDefault();
+    
+    
+        $("#mensagem")
+            .html("Formulário enviado com sucesso!")
+            .fadeIn()
+            .fadeOut(5000)
+            .delay(5000)  
+
+            $("#form")[0].reset();
     },
-    invalidHandler: function (form, validator) {
-        alert("Por favor, preencha os campos para prosseguir com a compra!");
+
+    invalidHandler: function(evento, validador){
+        let camposIncorretos = validador.numberOfInvalids();
+       if (camposIncorretos){
+        alert(`Existem ${camposIncorretos} campos incorretos`)
+       }
     }
-<<<<<<< HEAD
-});
-=======
 })
->>>>>>> 59cad0c0857126c0b6cee3a78e42dc2fd2a69e84
